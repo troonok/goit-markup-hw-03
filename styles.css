@@ -11,17 +11,14 @@
     --primary-text-color:  #757575;
     --title-text-color: #212121;
     --filter-text: #212121;
-    --active-link-color: #2196F3;
-    --logo-different-color: #2196f3;
-    --background-color-button: #2196f3;
-    --bcg-hero-section: #2F303A;
-    --bcg-footer-section: #2f303a;
+    --accent-color:#2196F3; 
+    --accent-background:#2F303A;
     --color-secondary-section: #F5F4FA;
-    --defolt-color-section:#F5F5F5;
     --header-color:#ffffff;
-    --major-text: #ffffff;
     --logo-text: #000000;
-    --border-color-card:EEEEEE;
+}
+html{
+    box-sizing:border-box;
 }
 body{
     font-family: 'Roboto', sans-serif;
@@ -30,15 +27,41 @@ body{
     line-height: 1.71;
     letter-spacing: 0.03em;
 }
+h1, h2, h3, p {
+    margin: 0px;
+    padding: 0px;
+    
+}
+.conteiner{
+    width: 1200px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
 .list{
     list-style:none;
+    margin: 0px;
+    padding: 0px;
+
 }
 .link {
     color: #212121;
     text-decoration: none;
 }
+
 /* хєдер*/
+.header-wrap{
+    display: flex;
+    align-items: center;
+    padding-top: 25px;
+    padding-bottom: 24px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #ECECEC;
+}
 .logo-link{
+    display: block;
     font-family: Raleway;
     font-weight: 700;
     font-size: 26px;
@@ -46,15 +69,26 @@ body{
     color: var(--logo-text);
 }
 .logo-link .accent{
-    color:var(--logo-different-color);
+    color:var(--accent-color);
 }
-.header-list{
+.navigation{
+    margin-left: 93px;
+}
+.header-list,
+.contact-list{
+    display: flex;
     font-weight: 500;
     line-height: 1.17;
     letter-spacing: 0.02em;
 }
+.header li:not(:last-child){
+    margin-right: 50px;
+}
+.contact-list{
+    margin-left: auto;
+}
 .current{
-    color: var(--active-link-color);
+    color: var(--accent-color);
 }
 .address-link:hover,
 .address-link:focus,
@@ -62,14 +96,20 @@ body{
 .nav-item .link:focus, 
 .contact-link:hover,
 .contact-link:focus {
-    color:var(--active-link-color);
+    color:var(--accent-color);
 }
 .contact-link{
     color: var(--primary-text-color)
 }
 /*основной контент*/
 .hero-section{
-    background-color: var(--bcg-hero-section);
+    background-color: var(--accent-background);
+    text-align: center;
+   
+}
+.hero-section .conteiner{
+    padding-top: 200px;
+    padding-bottom: 200px;
 }
 .caption-hero{
     font-weight: 900;
@@ -77,16 +117,23 @@ body{
     line-height: 1.36;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color:var(--major-text);
+    color:#ffffff;
+    margin-bottom: 30px;
 }
 .button-hero{
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 4px;
+    border: none;
     font-family: inherit;
     font-weight: 700;
     font-size: 16px;
     line-height: 1.88;
     letter-spacing: 0.06em;
-    color:var(--major-text);
-    background-color: var(--background-color-button);
+    color:#ffffff;
+    background-color: var(--accent-color);
 }
 .visually-hidden{
     position: absolute;
@@ -101,7 +148,16 @@ body{
     clip: rect(0 0 0 0);
     overflow: hidden;
 }
+.benefits-list{
+    padding-top: 94px;
+    display: flex;
+    justify-content: space-between;
+}
+.benefits-list > li:not(:last-child){
+    margin-right: 30px;
+}
 .benefits-caption{
+    margin-bottom: 10px;
     font-size: 14px;
     font-weight: 700;
     line-height: 1.14px;
@@ -109,39 +165,88 @@ body{
     color: var(--title-text-color);
 }
 .function-caption, .team-caption{
+    text-align: center;
+    padding-top: 94px;
     font-weight: 700;
     font-size: 36px;
     line-height: 1.17;
     color:var(--title-text-color);
 }
+.function-list {
+    margin-top: 50px;
+    padding-bottom: 94px;
+    display: flex;
+    justify-content: space-between;
+}
+.function-list img{
+    display: block;
+}
+.function-list > li{
+    width: calc(100%/3,3333);
+}
 .team{
-   background-color: var(--color-secondary-section);
+    background-color: var(--color-secondary-section);
+}
+.team-list{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 50px;
+    padding-bottom: 94px;
 }
 .team-caption-list{
+    margin-top: 30px;
     font-weight: 500;
     font-size: 16px;
     line-height: 1.19;
     color: var(--title-text-color);
 }
 .team-text-list{
+    margin-top: 10px;
     font-size: 16px;
     line-height: 1.19;
 }
+
+/*футер*/
 .footer{
-    background-color: var(--bcg-footer-section);
+    background-color: var(--accent-background);
+}
+.footer .conteiner{
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 .footer .link{
     font-style: normal;
 }
-.address-link{
-    color: var(--major-text);
+.footer .logo-link{
+    margin-bottom: 20px;
 }
+.footer .contact-link{
+    margin-top: 9px;
+}
+.address-link,
 footer .change-color{
-    color: var(--major-text);
+    color:#ffffff;
 }
 
 /*портфолио*/
+.portfolio-list{
+    display: flex;
+    justify-content: center;
+    padding-top: 94px;
+    margin-bottom: 50px;
+}
+.portfolio-list > li:not(:last-child){
+    margin-right: 8px;
+}
 .button-filter{
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08), 0px 2px 2px rgba(0, 0, 0, 0.12);
     font-family: inherit;
     letter-spacing: inherit;
     font-weight: 500;
@@ -149,13 +254,38 @@ footer .change-color{
     line-height: 1.62;
     color:var(--title-text-color);
     cursor: pointer;
+    
 }
 .button-filter:hover,
 .button-filter:focus{
-    background-color: var(--background-color-button);
-    color: var(--major-text);
+    background-color: var(--accent-color);
+    color:#ffffff;
+}
+.content-example-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 94px;
+    
+}
+.content-example-list > li:not(:nth-last-child(-n + 3)){
+    margin-bottom: 30px;
+}
+
+.content-example-item img{
+    display: block;
+}
+.content-example-list > li{
+    width: calc(100%/3,3333);
+}
+.card-info{
+    border: solid 1px #EEEEEE;
+    padding-left: 24px;
+    padding-bottom: 20px;
+    padding-top: 20px;
 }
 .example-caption{
+    margin-bottom: 4px;
 font-weight: 700;
 font-size: 18px;
 line-height: 2.0;
